@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Chamar funções dos methods 
+            atraves do => v-on:attribute="funcao()"
+            modo encurtado => @attribute="funcao()"
+         -->
+         <button v-on:click="msgAlerta()">BTN ALERTA v-on</button>
+         <button @click="msgAlerta()">BTN ALERTA @</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{},
+            methods: {
+                msgAlerta(){
+                    alert('Mensagem de alerta !')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
