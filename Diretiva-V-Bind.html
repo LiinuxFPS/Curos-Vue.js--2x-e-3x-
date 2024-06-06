@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="vue.js"></script>
+
+    <style>
+        .verde{
+            color: green;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- atribuir valores nos atributos das tags Html pelo Vue-->
+        <!-- forma padrão => v-bind:attribute="nome" -->
+        <!-- forma abreviada => :attribute="nome" -->
+        <a v-bind:href="site">Site</a><br>
+        <a :href="site">Site</a>
+        <p v-bind:class="cor">Entendendo a diretiva v-bind</p>
+        <input type="text" v-bind:placeholder="preenchimentoPlaceholder">
+        <input type="checkbox" v-bind:checked="check">
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                site: 'http://dogpen.sk/laz',
+                cor: 'verde',
+                preenchimentoPlaceholder: 'v-bind',
+                check: true
+            },
+            methods: {}
+        })
+    </script>
+</body>
+</html>
