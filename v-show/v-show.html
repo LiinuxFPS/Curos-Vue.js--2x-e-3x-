@@ -8,13 +8,23 @@
 </head>
 <body>
     <div id="app">
-
+        <h2 
+            @mouseover="exibirTexto = true" 
+            @mouseout="exibirTexto = false">
+            Exemplo tooltip
+        </h2>
+        <div v-show="exibirTexto">
+            <p>Conteudo texto ajuda</p>
+            <p>Conteudo texto ajuda</p>
+        </div>
     </div>
 
     <script>
         const vm = new Vue({
             el: '#app',
-            data:{},
+            data:{
+                exibirTexto: false
+            },
             methods:{}
         })
     </script>

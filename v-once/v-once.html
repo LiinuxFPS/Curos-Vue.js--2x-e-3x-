@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-once para redenrizar apenas uma vez -->
+        <p v-once>Saldo inicical: R${{ saldo }}</p>
+        
+        <p>Saldo atualizado: R$:{{ saldo }}</p>
+        <input type="text" id="setValor" :value="campoInputValor">
+        <button @click="creditar()">creditar</button>
+        <button @click="debitar()">debitar</button>
+        <p v-if="!validar">Digite um valor</p>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                saldo: 1100,
+                campoInputValor: '',
+                validar: true
+            },
+            methods:{
+                creditar(){
+                    if(setValor.value == ''){
+                        //alert('digite um valor!')
+                        this.validar = false
+                    }
+                    else{
+                        this.saldo += Number(setValor.value)
+                        this.validar = true
+                    }
+                },
+                debitar(){
+                    if(setValor.value == ''){
+                        //alert('digite um valor!')
+                        this.validar = false
+                    }
+                    else{
+                        this.saldo -= Number(setValor.value)
+                        this.validar = true
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
