@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+           <li v-for="nome in nomes" :key="nome.id">
+            {{ nome.nome }} - {{ nome.id }}
+           </li>
+        </ul>
+        <button @click="misturarArray()">Misturar</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                nomes: [
+                    {id:1, nome:'Lida Warner'},
+                    {id:2, nome:'Agnes Sutton'},
+                    {id:3, nome:'Edna Cooper'}
+                ]
+            },
+            methods:{
+                misturarArray(){
+                    let misturar = []
+
+                    misturar[0] = this.nomes[2]
+                    misturar[1] = this.nomes[0]
+                    misturar[2] = this.nomes[1]
+
+                    this.nomes = misturar
+                }
+            }
+        })
+    </script>
+</body>
+</html>
