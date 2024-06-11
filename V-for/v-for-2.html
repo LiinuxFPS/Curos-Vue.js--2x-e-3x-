@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <table border="1px">
+            <thead>
+                <tr>
+                    <td>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(cad, chave) in cadastro">
+                    <td>{{ chave }}</td>
+                    <td>{{ cad.nome }}</td>
+                    <td>{{ cad.email }}</td>
+                </tr>
+                <!-- 
+                    destructuring assignment 
+                    
+                    <tr v-for="({nome, email}) in cadastro">
+                    <td>{{ chave }}</td>
+                    <td>{{ nome }}</td>
+                    <td>{{ email }}</td>
+                    </tr>
+                -->
+            </tbody>
+            <br>
+        </table>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                cadastro:{
+                    1000:{
+                        nome: 'Anthony Jennings',
+                        email: 'kig@polsuc.am'
+                    },
+                    1001:{
+                        nome: 'Mathilda Lucas',
+                        email: 'valfeca@zuvusmip.pm'
+                    }
+                }
+            },
+            methods:{}
+        })
+    </script>
+</body>
+</html>

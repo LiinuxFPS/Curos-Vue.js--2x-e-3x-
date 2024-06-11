@@ -12,12 +12,12 @@
         <p v-once>Saldo inicical: R${{ saldo }}</p>
         
         <p>Saldo atualizado: R$:{{ saldo }}</p>
-        <input type="text" id="setValor" :value="campoInputValor">
+        <input type="text" id="setValor" :value="campoInputValor" placeholder="R$0,00">
         <button @click="creditar()">creditar</button>
         <button @click="debitar()">debitar</button>
         <p v-if="!validar">Digite um valor</p>
     </div>
-
+ 
     <script>
         const vm = new Vue({
             el: '#app',

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- exemplo 1 -->
+            <li v-for="curso in cursos">{{ curso }}</li>
+            <br>
+
+            <!-- exemplo 2 -->
+            <li v-for="curso in cursos" v-text="curso"></li>
+            <br>
+
+            <!-- exemplo 3 recuperando o indice -->
+            <li v-for="(curso, chave) in cursos">
+                {{ chave }} - {{ curso }}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                cursos: [
+                    'Laravel',
+                    'Web completo',
+                    'Vue',
+                    'Banco de Dados'
+                ]
+            },
+            methods:{}
+        })
+    </script>
+</body>
+</html>
