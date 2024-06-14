@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        Publicar comentario:
+        <input type="text" id="inputComentario">
+        <button @click="publicar()">Enviar</button>
+        <br>
+        
+        <ul>
+            <li v-for="(c, chave) in comentario" :id="indice=chave">
+                {{ c }} - {{ chave }}
+                <button @click="apagar(chave)">x</button></li>
+        </ul>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                comentario:[],
+                indice:''
+            },
+            methods:{
+                publicar(){
+                    this.comentario.push(inputComentario.value)
+                },
+                apagar(chave){
+                    //console.log(chave)
+                    this.comentario.splice(chave, 1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
