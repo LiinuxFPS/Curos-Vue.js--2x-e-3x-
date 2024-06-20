@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h3>adicionar pacientes</h3>
+        <span>Nome: </span><input type="text" id="inputNome" placeholder="Nome">
+        <span>Idade: </span><input type="text" id="inputIdade" placeholder="Idade">
+        <span>plano: </span><input type="text" id="inputPlano" placeholder="Plano">
+        <button @click="adicionarpaciente()">Adicionar</button>
+        
+        <hr>
+        <h3>Último paciente cadastrado</h3>
+        <!-- 
+            - A propriedade computed: pode ser chamada em n lugares do codigo
+            - não precisa dos ' () ' para chamar a função
+         -->
+        <p v-if="pacientes.length > 0">{{ ultimoPaciente }}</p>
+
+        <hr>
+        <div v-show="ouroAtivo">
+            <h3>Pacientes do plano Ouro</h3>
+            <p v-for="p in pacientesPlanoOuro">{{ p.nome }}</p>
+        </div>
+
+        <hr>
+        <h2>Pacientes cadastrados</h2>
+        <div>
+            <ul>
+                <li v-for="(p, chave) in pacientes" :id="chave">
+                    {{ p.nome }} - {{p.plano}}
+                <button @click="apagarPaciente(chave)">apagar</button></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                pacientes: [{
+                    nome:'Clayton',
+                    idade:'32',
+                    plano:'basico'
+                }],
+                ouroAtivo: false
+            },
+            methods:{
+                adicionarpaciente(){
+                    this.pacientes.push({
+                        nome: inputNome.value,
+                        idade: inputIdade.value,
+                        plano: inputPlano.value
+                    })
+
+                    if(this.pacientes.filter(item=>item.plano == 'ouro')){
+                        this.ouroAtivo = true
+                    }
+                },
+                apagarPaciente(chave){
+                    //console.log(chave)
+                    if(this.pacientes.filter(item=>item.plano == 'ouro')){
+                        this.ouroAtivo = false
+                    }
+                    this.pacientes.splice(chave, 1)
+                }
+            },
+            computed:{
+                ultimoPaciente(){
+                    let key = this.pacientes.length -1
+                    let txt = ''
+
+                    txt+= 'Paciente: '+this.pacientes[key].nome
+                    txt+= ', idade:'+this.pacientes[key].idade
+                    txt+= ', Plano: '+this.pacientes[key].plano
+
+                    return txt.toUpperCase()
+                },
+                pacientesPlanoOuro(){
+                    return this.pacientes.filter(item=>item.plano == 'ouro')
+                },
+            }
+        })
+    </script>
+</body>
+</html>
