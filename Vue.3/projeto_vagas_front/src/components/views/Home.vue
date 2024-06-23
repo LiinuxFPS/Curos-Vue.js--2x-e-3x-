@@ -9,13 +9,27 @@
         <div class="row mt-5">
             <!-- Vagas em aberto -->
             <div class="col-4">
-                <indicador titulo="Vagas abertas" indicador="100"></indicador>
+                <indicador 
+                    titulo="Vagas abertas" 
+                    indicador="100"
+                    bg="bg-dark"
+                    color="text-white"></indicador>
             </div>
+            <!-- Profissionais Cadastrados -->
             <div class="col-4">
-                <indicador titulo="Profissionais Cadastrados" indicador="225"></indicador>
+                <indicador 
+                    titulo="Profissionais Cadastrados" 
+                    indicador="225"
+                    bg="bg-dark"
+                    color="text-white"></indicador>
             </div>
+            <!-- Visitantes online -->
             <div class="col-4">
-                <indicador titulo="Visitantes online" indicador="22"></indicador>
+                <indicador 
+                    titulo="Visitantes online" 
+                    indicador="22"
+                    bg="bg-info"
+                    color="text-dark"></indicador>
             </div>
         </div>
     </div>
