@@ -9,19 +9,13 @@
         <div class="row mt-5">
             <!-- Vagas em aberto -->
             <div class="col-4">
-                <indicador></indicador>
+                <indicador titulo="Vagas abertas" indicador="100"></indicador>
             </div>
             <div class="col-4">
-                <div class="h-100 p-5 rounded-3 border bg-dark text-white">
-                    <p>Profissionais cadastrados</p>
-                    <h3>125</h3>
-                </div>
+                <indicador titulo="Profissionais Cadastrados" indicador="225"></indicador>
             </div>
             <div class="col-4">
-                <div class="h-100 p-5 rounded-3 border bg-info text-dark">
-                    <p>Visitantes online</p>
-                    <h3>12</h3>
-                </div>
+                <indicador titulo="Visitantes online" indicador="22"></indicador>
             </div>
         </div>
     </div>
@@ -31,12 +25,12 @@
     import PesquisarVaga from '@/components/comuns/PesquisarVaga.vue'
     import Indicador from '@/components/comuns/Indicador.vue';
     export default{
-    name: 'Home',
-    components:{
-        PesquisarVaga,
-        Indicador
+        name: 'Home',
+        components:{
+            PesquisarVaga,
+            Indicador
+        }
     }
- }
 </script>
 
 
