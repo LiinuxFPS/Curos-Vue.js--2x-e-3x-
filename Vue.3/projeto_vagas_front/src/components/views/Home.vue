@@ -27,7 +27,7 @@
             <div class="col-4">
                 <indicador 
                     titulo="Visitantes online" 
-                    indicador="22"
+                    :indicador="usuariosOnline"
                     bg="bg-info"
                     color="text-dark"></indicador>
             </div>
@@ -43,6 +43,17 @@
         components:{
             PesquisarVaga,
             Indicador
+        },
+        data:()=>({
+            usuariosOnline: 0
+        }),
+        methods:{
+            getUsuariosOnline(){
+                this.usuariosOnline = Math.floor(Math.random() * 101)
+            } 
+        },
+        created(){
+            setInterval(this.getUsuariosOnline, 3000)
         }
     }
 </script>
