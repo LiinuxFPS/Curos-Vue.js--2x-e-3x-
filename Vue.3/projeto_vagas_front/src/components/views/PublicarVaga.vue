@@ -9,7 +9,7 @@
         <div class="row mt-2">
             <div class="col">
                 <label class="form-label">Título da vaga</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" v-model="titulo">
                 <div class="form-text">Exemplo: Dev Javascript</div>
             </div>
         </div>
@@ -17,7 +17,7 @@
         <div class="row mt-2">
             <div class="col">
                 <label class="form-label">Descrição</label>
-                <textarea type="text" class="form-control"></textarea>
+                <textarea type="text" class="form-control" v-model="descricao"></textarea>
                 <div class="form-text">Informe os detalhes da vaga</div>
             </div>
         </div>
@@ -25,33 +25,38 @@
         <div class="row mt-2">
             <div class="col">
                 <label class="form-label">Salário</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" v-model="salario">
                 <div class="form-text">Informe o salário</div>
             </div>
 
             <div class="col">
                 <label class="form-label">Modalidade</label>
-                <select class="form-select">
+                <select class="form-select" v-model="modalidade">
+                    <option value="" disabled>Selecionar</option>
                     <option value="1">Home office</option>
                     <option value="2">Presencial</option>
                 </select>
-                <div class="form-text">Informe onde as atividades serão realizadas</div>
+                <div class="form-text">
+                    Informe onde as atividades serão realizadas
+                </div>
             </div>
 
             <div class="col">
                 <label class="form-label">Tipo</label>
-                <select class="form-select">
+                <select class="form-select" v-model="tipo">
+                    <option value="" disabled>Selecionar</option>
                     <option value="1">CLT</option>
                     <option value="2">PJ</option>
                 </select>
                 <div class="form-text">Informe o tipo de contratação</div>
             </div>
         </div>
-
+{{ titulo }}
         <!-- enviar vaga -->
         <div class="row mt-3">
             <div class="col">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary"
+                    @click="salvarVaga()">
                     Cadastrar
                 </button>
             </div>
@@ -61,8 +66,30 @@
 
 <script>
     export default{
-    name: 'PublicarVagas'
- }
+        name: 'PublicarVagas',
+        data:()=>({
+
+            //fazer um v-model para realizar um two-way data-binding
+            titulo:'',
+            descricao:'',
+            salario:'',
+            modalidade:'',
+            tipo:''
+        }),
+        methods:{
+            salvarVaga(){
+                let vaga ={
+                    titulo: this.titulo,
+                    descricao: this.descricao,
+                    sasalario: this.salario,
+                    modalidade: this.modalidade,
+                    tipo: this.tipo
+                }
+                localStorage.setItem('vagas',JSON.stringify(vaga))
+                //console.table(vaga)
+            }
+        }
+    }
 </script>
 
 

@@ -116,7 +116,7 @@
             } 
         },
         created(){
-            setInterval(this.getUsuariosOnline, 3000)
+            setInterval(this.getUsuariosOnline, 5000)
         }
     }
 </script>
