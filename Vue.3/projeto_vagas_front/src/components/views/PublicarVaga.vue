@@ -78,14 +78,22 @@
         }),
         methods:{
             salvarVaga(){
+
+                //converte a string em objeto para resgatar os atributos
+                let vagas = JSON.parse(localStorage.getItem('vagas'))
+
+                if(!vagas) vagas = []
+
                 let vaga ={
                     titulo: this.titulo,
                     descricao: this.descricao,
-                    sasalario: this.salario,
+                    salario: this.salario,
                     modalidade: this.modalidade,
                     tipo: this.tipo
                 }
-                localStorage.setItem('vagas',JSON.stringify(vaga))
+                vagas.push(vaga)
+                //transforma o objeto vaga em uma string
+                localStorage.setItem('vagas',JSON.stringify(vagas))
                 //console.table(vaga)
             }
         }
