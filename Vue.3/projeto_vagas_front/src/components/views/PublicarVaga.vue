@@ -51,7 +51,7 @@
                 <div class="form-text">Informe o tipo de contratação</div>
             </div>
         </div>
-{{ titulo }}
+        
         <!-- enviar vaga -->
         <div class="row mt-3">
             <div class="col">

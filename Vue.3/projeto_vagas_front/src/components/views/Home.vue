@@ -67,8 +67,8 @@
         },
         data:()=>({
             usuariosOnline: 0,
-            vagas: [
-            {
+            vagas: [] ///array vazio para receber os dados do LocalStorage
+            /*{
                 titulo: 'Analista Programador PHP Pleno',
                 descricao: 'Profissional com conhecimentos em PHP, Laravel e MySQL. Necessário 3 anos de experiências. Atuará na manutenção de sistemas legados da empresa.',
                 salario: 6000,
@@ -107,8 +107,7 @@
                 modalidade: 'Presencial',
                 tipo: 'CLT',
                 publicacao: '2021-10-05'
-            }
-]
+            }*/
         }),
         methods:{
             getUsuariosOnline(){
@@ -117,6 +116,9 @@
         },
         created(){
             setInterval(this.getUsuariosOnline, 5000)
+        },
+        mounted(){
+            this.vagas = JSON.parse(localStorage.getItem('vagas'))
         }
     }
 </script>
