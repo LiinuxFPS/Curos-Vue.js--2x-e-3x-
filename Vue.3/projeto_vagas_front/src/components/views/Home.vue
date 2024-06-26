@@ -9,14 +9,20 @@
         <!-- Listar vagas -->
          <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
             <div class="col">
-                <vaga
+                <!--exemplo 1 
+                    vaga
                     :titulo="vaga.titulo"
                     :descricao="vaga.descricao"
                     :salario="vaga.salario"
                     :modalidade="vaga.modalidade"
                     :tipo="vaga.tipo"
                     :publicacao="vaga.publicacao"
-                />
+                />-->
+                <!-- 
+                    //Passar o objeto inteiro para o componente filho
+                    //todos os atributos(props/filho precisam ter o mesmo nome)
+                -->
+                <Vaga v-bind="vaga"/>
             </div>
          </div>
         <div class="row mt-5">

@@ -20,14 +20,41 @@
 <script>
     export default {
         name: 'Vaga',
-        //props: ['titulo','descricao','salario','modalidade','tipo','publicacao']
+        //exemplo 1 props: ['titulo','descricao','salario','modalidade','tipo','publicacao']
+        
         //Tipagem de props
-        props:{ titulo: String,
+        //exemplo 2
+        /*props:{ titulo: String,
                 descricao: String,
                 salario: [Number, String],//pode aceitar mais de uma tipagem
                 modalidade: String,
                 tipo: String,
                 publicacao: String
+        }*/
+
+        //exemplo 3
+        //Validação de props (required e validator)
+        props:{
+            titulo:{
+                type: String,
+                required: true
+            },
+            descricao:{
+                type: String,
+                required: true
+            },
+            salario:{
+                type: [Number,String],
+                required: true
+            },
+            modalidade:{
+                type: String,
+                required: true
+            },
+            publicacao:{
+                type: String,
+                required: true
+            },
         }
     }
 </script>
