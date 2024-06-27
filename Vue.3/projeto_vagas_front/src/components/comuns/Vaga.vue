@@ -11,7 +11,7 @@
                 Sálario: R${{ salario }} | 
                 Modalidade: {{ getModalidade }} | 
                 Tipo: {{ getTipo }} | 
-                Publicação: {{ publicacao }}
+                Publicação: {{ getPublicacao }}
             </small>
         </div>
     </div>
@@ -74,6 +74,10 @@
                     case '2' : return 'PJ'
                 }
                 return ''
+            },
+            getPublicacao(){
+                let dataPublicacao = new Date(this.publicacao)
+                return dataPublicacao.toLocaleString()
             }
         }
     }

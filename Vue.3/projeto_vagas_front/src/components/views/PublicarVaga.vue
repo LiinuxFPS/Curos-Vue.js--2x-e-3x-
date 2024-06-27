@@ -79,6 +79,11 @@
         methods:{
             salvarVaga(){
 
+                //capturando a data da publicação
+                let tempoDecorrido = Date.now()
+                let dataAtual = new Date(tempoDecorrido)
+                let dataPublicacao = dataAtual.toISOString()
+
                 //converte a string em objeto para resgatar os atributos
                 let vagas = JSON.parse(localStorage.getItem('vagas'))
 
@@ -89,7 +94,8 @@
                     descricao: this.descricao,
                     salario: this.salario,
                     modalidade: this.modalidade,
-                    tipo: this.tipo
+                    tipo: this.tipo,
+                    publicacao: dataPublicacao
                 }
                 vagas.push(vaga)
                 //transforma o objeto vaga em uma string
