@@ -1,7 +1,20 @@
 <template>
     <div class="card">
         <div class="card-header bg-dark text-white">
-            {{ titulo }}
+            <!-- checkbox para favoritar vaga -->
+             <div class="row">
+                <div class="col d-flex justify-content-between">
+                    <div>
+                    {{ titulo }}
+                    </div>
+                    <div>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input">
+                            <label class="form-check-label">Favoritar</label>
+                        </div>
+                    </div>
+                </div>
+             </div>
         </div>
         <div class="card-body border border-secondary">
             <p>{{ descricao }}</p>
