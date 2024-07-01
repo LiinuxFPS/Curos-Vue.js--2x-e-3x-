@@ -117,7 +117,7 @@
         created(){
             setInterval(this.getUsuariosOnline, 5000)
         },
-        mounted(){
+        activated(){
             this.vagas = JSON.parse(localStorage.getItem('vagas'))
         }
     }
