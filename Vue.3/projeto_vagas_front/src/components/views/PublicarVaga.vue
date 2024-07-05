@@ -101,6 +101,15 @@
                 //transforma o objeto vaga em uma string
                 localStorage.setItem('vagas',JSON.stringify(vagas))
                 //console.table(vaga)
+
+                this.resetaFormularioCadastroVaga()
+            },
+            resetaFormularioCadastroVaga(){
+                this.titulo = '',
+                this.descricao= '',
+                this.salario= '',
+                this.modalidade= '',
+                this.tipo= ''
             }
         }
     }
