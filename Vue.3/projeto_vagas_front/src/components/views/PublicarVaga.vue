@@ -100,7 +100,9 @@
                 vagas.push(vaga)
                 //transforma o objeto vaga em uma string
                 localStorage.setItem('vagas',JSON.stringify(vagas))
-                //console.table(vaga)
+                
+                //dispara o evento alerta atraves do mitt
+                this.emitter.emit('alerta')
 
                 this.resetaFormularioCadastroVaga()
             },
