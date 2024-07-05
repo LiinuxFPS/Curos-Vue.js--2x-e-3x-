@@ -2,7 +2,13 @@
   <div>
     <vagas-favoritas></vagas-favoritas>
     <topo v-on:TopoEnviaParaComponentePai="varRecebeEvent = $event"/>
-    <alerta v-if="exibirAlerta"></alerta>
+    <alerta v-if="exibirAlerta">
+      <!-- passando conteudo HTML para o componente por meio de <slots></slot> -->
+      <div class="alert alert-success" role="alert">
+        <h4>Vaga publicada</h4>
+        <p>Sua vaga foi Publicada com sucesso !</p>
+      </div>
+    </alerta>
     <conteudo v-if="visibilidade" :conteudo="varRecebeEvent" />
   </div>
 </template>

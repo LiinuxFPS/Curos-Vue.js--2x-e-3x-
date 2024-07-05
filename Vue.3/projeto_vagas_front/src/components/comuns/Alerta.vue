@@ -1,7 +1,5 @@
 <template>
-  <div class="alert alert-success" role="alert">
-    Sua vaga fo Publicada com sucesso !
-  </div>
+    <slot></slot>
 </template>
 
 <script>
